@@ -15,5 +15,6 @@ group :test, :development do
 end
 
 group :development do
+  gem 'overcommit'
   gem 'yard'
 end

@@ -6,3 +6,8 @@ gem "roda"
 gem "puma"
 gem "tilt"
 
+group :test, :development do
+  gem "pry"
+  gem "rerun"
+  gem "rubocop", require: false
+end

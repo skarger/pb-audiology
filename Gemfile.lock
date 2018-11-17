@@ -1,0 +1,18 @@
+GEM
+  remote: https://rubygems.org/
+  specs:
+    rack (2.0.6)
+    roda (3.14.0)
+      rack
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  roda
+
+RUBY VERSION
+   ruby 2.5.3p105
+
+BUNDLED WITH
+   1.17.1

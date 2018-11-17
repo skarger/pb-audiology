@@ -39,6 +39,7 @@ GEM
     ruby_dep (1.5.0)
     tilt (2.0.8)
     unicode-display_width (1.4.0)
+    yard (0.9.16)
 
 PLATFORMS
   ruby
@@ -50,6 +51,7 @@ DEPENDENCIES
   roda
   rubocop
   tilt
+  yard
 
 RUBY VERSION
    ruby 2.5.3p105

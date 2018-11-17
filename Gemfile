@@ -1,13 +1,19 @@
-source "https://rubygems.org"
+# frozen_string_literal: true
 
-ruby "2.5.3"
+source 'https://rubygems.org'
 
-gem "roda"
-gem "puma"
-gem "tilt"
+ruby '2.5.3'
+
+gem 'puma'
+gem 'roda'
+gem 'tilt'
 
 group :test, :development do
-  gem "pry"
-  gem "rerun"
-  gem "rubocop", require: false
+  gem 'pry'
+  gem 'rerun'
+  gem 'rubocop', require: false
+end
+
+group :development do
+  gem 'yard'
 end

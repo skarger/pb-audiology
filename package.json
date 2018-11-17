@@ -5,7 +5,9 @@
   "repository": "git@github.com:skarger/pb-audiology.git",
   "author": "Stephen Karger <stephen.karger@gmail.com>",
   "license": "MIT",
-  "dependencies": {},
+  "dependencies": {
+    "css-loader": "^1.0.1"
+  },
   "devDependencies": {
     "markdown-toc": "^1.2.0",
     "postcss-loader": "^3.0.0",

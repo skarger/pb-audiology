@@ -1,6 +1,7 @@
 GEM
   remote: https://rubygems.org/
   specs:
+    puma (3.12.0)
     rack (2.0.6)
     roda (3.14.0)
       rack
@@ -9,6 +10,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  puma
   roda
 
 RUBY VERSION

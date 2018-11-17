@@ -1,0 +1,12 @@
+{
+  "name": "pb-audiology",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:skarger/pb-audiology.git",
+  "author": "Stephen Karger <stephen.karger@gmail.com>",
+  "license": "MIT",
+  "dependencies": {},
+  "devDependencies": {
+    "markdown-toc": "^1.2.0"
+  }
+}

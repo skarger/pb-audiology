@@ -1,7 +1,12 @@
-const HtmlWebpackPlugin = require('html-webpack-plugin')
+const path = require('path');
 
 module.exports = {
-  entry: './assets/styles.css',
+  entry: path.resolve(__dirname, 'assets', 'styles.css'),
+  mode: process.env.NODE_ENV,
+  output: {
+      filename: '[name].styles.css',
+      path: path.resolve(__dirname, 'public'),
+  },
   mode: process.env.NODE_ENV,
   module: {
     rules: [
@@ -26,9 +31,5 @@ module.exports = {
     ]
   },
   plugins: [
-    new HtmlWebpackPlugin({
-      filename: 'index.html',
-      template: 'assets/index.html',
-    }),
   ],
 }

@@ -1,7 +1,7 @@
 {
   "name": "pb-audiology",
   "version": "1.0.0",
-  "main": "index.js",
+  "private": true,
   "repository": "git@github.com:skarger/pb-audiology.git",
   "author": "Stephen Karger <stephen.karger@gmail.com>",
   "license": "MIT",

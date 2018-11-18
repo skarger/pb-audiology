@@ -46,7 +46,7 @@ bundle exec overcommit --install
 We use the [Rerun](https://github.com/alexch/rerun) gem to automatically restart the app when files change. To run the web server:
 
 ```
-rerun -- bundle exec puma -C config/puma.rb
+rerun -- bundle exec puma -v -C config/puma.rb
 ```
 
 # Deployment

@@ -1,9 +1,9 @@
 var tailwindcss = require('tailwindcss');
 
-module.exports = {
-  plugins: [
-    tailwindcss('./tailwind.js'),
-    require('autoprefixer'),
-    require('cssnano'),
-  ]
-}
+module.exports = ({ file, options, env }) => ({
+  plugins: {
+    'tailwindcss': './tailwind.js',
+    'autoprefixer': {},
+    'cssnano': env === 'production'
+  }
+})

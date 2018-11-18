@@ -1,3 +1,6 @@
+# compiled assets for this project
+/public/main.*
+
 *.gem
 *.rbc
 /.config
@@ -11,6 +14,7 @@
 /tmp/
 
 /node_modules/
+yarn-error.log
 
 # Used by dotenv library to load environment variables.
 # .env

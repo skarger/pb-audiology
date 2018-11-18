@@ -1,0 +1,12 @@
+/*
+ * Top-level stylesheet for the app
+ */
+
+/*
+ * See https://tailwindcss.com/docs/installation
+ */
+@tailwind preflight;
+
+@tailwind components;
+
+@tailwind utilities;

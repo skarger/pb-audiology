@@ -6,4 +6,5 @@ require 'logger'
 require 'server'
 
 use Rack::Logger
+use Rack::ConditionalGet
 run Server.freeze.app

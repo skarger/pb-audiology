@@ -9,6 +9,7 @@ class Server < Roda
   plugin :public, gzip: true, default_mime: 'text/html'
   plugin :caching
   plugin :render
+  plugin :partials
 
   route do |r|
     r.public

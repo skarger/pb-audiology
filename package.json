@@ -10,6 +10,7 @@
   },
   "devDependencies": {
     "markdown-toc": "^1.2.0",
+    "mini-css-extract-plugin": "^0.4.4",
     "postcss-loader": "^3.0.0",
     "style-loader": "^0.23.1",
     "tailwindcss": "^0.7.2",

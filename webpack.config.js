@@ -1,10 +1,12 @@
 const path = require('path');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const CompressionPlugin = require('compression-webpack-plugin');
+const watchFiles = process.env.NODE_ENV !== 'production';
 
 module.exports = {
   entry: path.resolve(__dirname, 'assets', 'index.js'),
   mode: process.env.NODE_ENV,
+  watch: watchFiles,
   output: {
     path: path.resolve(__dirname, 'public'),
   },

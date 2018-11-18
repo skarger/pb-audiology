@@ -1,12 +1,15 @@
 const path = require('path');
+const glob = require('glob');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const CompressionPlugin = require('compression-webpack-plugin');
-const watchFiles = process.env.NODE_ENV !== 'production';
+const PurgecssPlugin = require('purgecss-webpack-plugin');
+const PurgecssContentPaths = {
+  src: path.join(__dirname, 'views'),
+}
 
 module.exports = {
   entry: path.resolve(__dirname, 'assets', 'index.js'),
   mode: process.env.NODE_ENV,
-  watch: watchFiles,
   output: {
     path: path.resolve(__dirname, 'public'),
   },
@@ -36,5 +39,8 @@ module.exports = {
   plugins: [
     new MiniCssExtractPlugin(),
     new CompressionPlugin(),
+    new PurgecssPlugin({
+      paths: glob.sync(`${PurgecssContentPaths.src}/*`)
+    }),
   ],
 }

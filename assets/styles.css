@@ -10,3 +10,8 @@
 @tailwind components;
 
 @tailwind utilities;
+
+.aba-image {
+    max-height: 100px;
+    max-width: 219px;
+}

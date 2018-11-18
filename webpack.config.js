@@ -1,7 +1,13 @@
 const path = require('path');
 const glob = require('glob');
+
+// extract CSS as separate files
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+
+// gzip compiled files
 const CompressionPlugin = require('compression-webpack-plugin');
+
+// remove unused CSS
 const PurgecssPlugin = require('purgecss-webpack-plugin');
 const PurgecssContentPaths = {
   src: path.join(__dirname, 'views'),

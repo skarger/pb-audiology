@@ -1,3 +1,6 @@
+# compiled assets for this project
+/public/main.*
+
 *.gem
 *.rbc
 /.config

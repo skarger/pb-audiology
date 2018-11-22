@@ -5,13 +5,18 @@
 /*
  * See https://tailwindcss.com/docs/installation
  */
-@tailwind preflight;
 
-@tailwind components;
-
-@tailwind utilities;
+.wrapper {
+    @apply w-full;
+    @apply h-full;
+    @apply bg-grey;
+}
 
 .aba-image {
     max-height: 100px;
     max-width: 219px;
 }
+
+@tailwind preflight;
+@tailwind components;
+@tailwind utilities;

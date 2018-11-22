@@ -28,7 +28,7 @@
   "scripts": {
     "build": "webpack --mode production",
     "dev": "webpack --mode development",
-    "watch": "watch 'yarn dev' ./views",
+    "watch": "watch 'yarn dev' ./views ./assets",
     "heroku-postbuild": "yarn build"
   }
 }

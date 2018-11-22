@@ -19,5 +19,9 @@ class Server < Roda
       r.etag(etag, weak: true)
       render('home')
     end
+
+    r.is 'example' do
+      view('example')
+    end
   end
 end

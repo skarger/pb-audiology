@@ -12,6 +12,11 @@ const PurgecssPlugin = require('purgecss-webpack-plugin');
 const PurgecssContentPaths = {
   src: path.join(__dirname, 'views'),
 }
+class TailwindExtractor {
+  static extract(content) {
+    return content.match(/[A-Za-z0-9-_:\/]+/g) || [];
+  }
+}
 
 module.exports = {
   entry: path.resolve(__dirname, 'assets', 'index.js'),
@@ -46,7 +51,13 @@ module.exports = {
     new MiniCssExtractPlugin(),
     new CompressionPlugin(),
     new PurgecssPlugin({
-      paths: glob.sync(`${PurgecssContentPaths.src}/*`)
+      paths: glob.sync(`${PurgecssContentPaths.src}/*`),
+      extractors: [
+        {
+          extractor: TailwindExtractor,
+          extensions: ['html', 'erb'],
+        }
+      ],
     }),
   ],
 }

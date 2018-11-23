@@ -43,40 +43,44 @@
 @screen md {
     .wrapper {
         grid-template-rows: 4fr 15fr 3fr 1fr;
+        grid-template-columns: 9rem auto;
     }
 
+
     .header {
-        grid-column: 1 / 8;
+        grid-column: 1 / -1;
     }
+
 
     .navigation {
         grid-column: 1 / 2;
     }
 
     .main {
-        grid-column: 2 / 8;
+        grid-column: 2 / -1;
     }
 
     .related-links {
-        grid-column: 1 / 8;
+        grid-column: 1 / -1;
     }
 
     .footer {
-        grid-column: 1 / 8;
+        grid-column: 1 / -1;
     }
 }
 
 @screen xl {
     .wrapper {
         grid-template-rows: 4fr 15fr 1fr;
+        grid-template-columns: 9rem 3fr 1fr;
     }
 
     .main {
-        grid-column: 2 / 6;
+        grid-column: 2 / 3;
     }
 
     .related-links {
-        grid-column: 6 / 8;
+        grid-column: 3 / -1;
     }
 }
 

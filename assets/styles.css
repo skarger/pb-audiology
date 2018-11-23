@@ -6,51 +6,47 @@
  * See https://tailwindcss.com/docs/installation
  */
 
-.wrapper {
-    display: grid;
-    grid-template-rows: 8fr 3fr 15fr 3fr 1fr;
-    @apply w-full;
-    @apply h-full;
-    @apply bg-grey;
+a, a:visited {
+    color: inherit;
+    text-decoration: none;
+    @apply font-semibold;
+    @apply text-lg;
+}
+
+a:hover {
+    @apply text-orange-dark;
+}
+
+a:active {
+    @apply text-orange-light;
 }
 
 .header {
-    @apply bg-green-dark;
+    background: linear-gradient(config('colors.teal-darkest'), config('colors.teal-darker')), config('colors.teal-darkest');
 }
 
-.navigation {
-    @apply bg-green-lighter;
-}
-
-.main {
-    @apply bg-white;
-}
-
-.related-links {
-    @apply bg-red;
-}
-
-.footer {
-    @apply bg-red-lighter;
+.wrapper {
+    display: grid;
+    grid-template-rows: 150px 70px 15fr 3fr 1fr;
+    @apply w-full;
+    @apply h-full;
 }
 
 @screen sm {
     .wrapper {
-        grid-template-rows: 4fr 3fr 15fr 3fr 1fr;
+        grid-template-rows: 150px 70px 15fr 3fr 1fr;
     }
 }
 
 @screen md {
     .wrapper {
-        grid-template-rows: 4fr 15fr 3fr 1fr;
+        grid-template-rows: 150px 15fr 3fr 1fr;
         grid-template-columns: 9rem auto;
     }
-
 
     .header {
         grid-column: 1 / -1;
     }
-
 
     .navigation {
         grid-column: 1 / 2;
@@ -71,7 +67,7 @@
 
 @screen xl {
     .wrapper {
-        grid-template-rows: 4fr 15fr 1fr;
+        grid-template-rows: 150px 15fr 1fr;
         grid-template-columns: 9rem 3fr 1fr;
     }
 

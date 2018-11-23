@@ -6,6 +6,10 @@
  * See https://tailwindcss.com/docs/installation
  */
 
+.aba-image {
+    max-width: 240px;
+}
+
 a, a:visited {
     color: inherit;
     text-decoration: none;
@@ -34,6 +38,18 @@ a:active {
         background: linear-gradient(to right, config('colors.red-lighter'), config('colors.pink-lightest') 99%), config('colors.teal-darkest');
     }
 }
+/*
+.related-links {
+    background: linear-gradient(config('colors.pink-lightest'), config('colors.red-lighter')), config('colors.teal-darkest');
+}
+
+
+@screen md {
+    .related-links {
+        background: linear-gradient(to right, config('colors.pink-lightest') 1%, config('colors.red-lighter')), config('colors.teal-darkest');
+    }
+}
+*/
 
 .footer {
     background: linear-gradient(config('colors.teal-darker'), config('colors.teal-darkest')), config('colors.teal-darkest');
@@ -41,20 +57,20 @@ a:active {
 
 .wrapper {
     display: grid;
-    grid-template-rows: 150px 70px 15fr 3fr 1fr;
+    grid-template-rows: 150px 70px 15fr 3fr 30px;
     @apply w-full;
     @apply h-full;
 }
 
 @screen sm {
     .wrapper {
-        grid-template-rows: 150px 70px 15fr 3fr 1fr;
+        grid-template-rows: 150px 70px 15fr 3fr 30px;
     }
 }
 
 @screen md {
     .wrapper {
-        grid-template-rows: 150px 15fr 3fr 1fr;
+        grid-template-rows: 150px 15fr 3fr 30px;
         grid-template-columns: 9rem auto;
     }
 
@@ -64,6 +80,7 @@ a:active {
 
     .navigation {
         grid-column: 1 / 2;
+        grid-row: 2 / -2;
     }
 
     .main {
@@ -71,7 +88,7 @@ a:active {
     }
 
     .related-links {
-        grid-column: 1 / -1;
+        grid-column: 2 / -1;
     }
 
     .footer {
@@ -81,7 +98,7 @@ a:active {
 
 @screen xl {
     .wrapper {
-        grid-template-rows: 150px 15fr 1fr;
+        grid-template-rows: 150px 15fr 30px;
         grid-template-columns: 9rem 3fr 1fr;
     }
 
@@ -92,11 +109,6 @@ a:active {
     .related-links {
         grid-column: 3 / -1;
     }
-}
-
-.aba-image {
-    max-height: 100px;
-    max-width: 219px;
 }
 
 @tailwind preflight;

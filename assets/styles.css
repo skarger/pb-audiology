@@ -14,15 +14,29 @@ a, a:visited {
 }
 
 a:hover {
-    @apply text-orange-dark;
+    @apply text-orange-darker;
 }
 
 a:active {
-    @apply text-orange-light;
+    @apply text-orange;
 }
 
 .header {
     background: linear-gradient(config('colors.teal-darkest'), config('colors.teal-darker')), config('colors.teal-darkest');
+}
+
+.navigation {
+    background: linear-gradient(config('colors.red-lighter'), config('colors.pink-lightest')), config('colors.teal-darkest');
+}
+
+@screen md {
+    .navigation {
+        background: linear-gradient(to right, config('colors.red-lighter'), config('colors.pink-lightest') 99%), config('colors.teal-darkest');
+    }
+}
+
+.footer {
+    background: linear-gradient(config('colors.teal-darker'), config('colors.teal-darkest')), config('colors.teal-darkest');
 }
 
 .wrapper {

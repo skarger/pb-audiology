@@ -21,15 +21,15 @@
 
     <body class="bg-white font-sans text-teal-darkest">
         <div class="wrapper">
-            <div class="header whitespace-no-wrap font-serif text-xl md:text-2xl text-orange p-2 flex flex-col items-center justify-between md:flex-row md:items-stretch">
-                <span><%= name %>, <span class="text-orange-lighter"><%= credentials %></span></span>
+            <div class="header whitespace-no-wrap font-serif text-xl md:text-2xl text-orange p-2 flex flex-col items-center justify-between lg:flex-row lg:items-stretch">
+                <span class="text-2xl md:text-3xl"><%= name %>, <span class="text-orange-lighter"><%= credentials %></span></span>
                 <span><%= telephone %></span>
-                <span class="flex justify-between sm:flex-col sm:justify-start">
-                    <span class="pr-2 sm:pr-0 sm:pb-2"><%= street_address %></span>
-                    <span class="pl-2 sm:pl-0"><span><%= address_locality %></span>, <span><%= address_region %></span> <span><%= postal_code %></span></span>
+                <span class="flex justify-between lg:flex-col lg:justify-start">
+                    <span class="pr-2 lg:pr-0 lg:pb-2"><%= street_address %></span>
+                    <span class="pl-2 lg:pl-0"><span><%= address_locality %></span>, <span><%= address_region %></span> <span><%= postal_code %></span></span>
                 </span>
             </div>
-            <div class="navigation bg-pink-lightest p-2 flex justify-around items-center md:items-stretch md:flex-col md:justify-start">
+            <div class="navigation p-2 flex justify-around items-center md:items-stretch md:flex-col md:justify-start">
                 <a class="md:pb-2" href="/"><span>Home</span></a>
                 <a class="md:pb-2" href="/about"><span>About</span></a>
                 <a class="md:pb-2" href="/contact"><span>Contact Us</span></a>

@@ -8,7 +8,7 @@
 
 .wrapper {
     display: grid;
-    grid-template-rows: 8fr 3fr 15fr 2fr 1fr;
+    grid-template-rows: 8fr 3fr 15fr 3fr 1fr;
     @apply w-full;
     @apply h-full;
     @apply bg-grey;
@@ -36,7 +36,7 @@
 
 @screen sm {
     .wrapper {
-        grid-template-rows: 4fr 3fr 15fr 2fr 1fr;
+        grid-template-rows: 4fr 3fr 15fr 3fr 1fr;
     }
 }
 
@@ -46,7 +46,7 @@
     }
 
     .header {
-        grid-column: 1 / 5;
+        grid-column: 1 / 8;
     }
 
     .navigation {
@@ -54,15 +54,15 @@
     }
 
     .main {
-        grid-column: 2 / 5;
+        grid-column: 2 / 8;
     }
 
     .related-links {
-        grid-column: 1 / 5;
+        grid-column: 1 / 8;
     }
 
     .footer {
-        grid-column: 1 / 5;
+        grid-column: 1 / 8;
     }
 }
 
@@ -72,11 +72,11 @@
     }
 
     .main {
-        grid-column: 2 / 4;
+        grid-column: 2 / 6;
     }
 
     .related-links {
-        grid-column: 4 / 5;
+        grid-column: 6 / 8;
     }
 }
 

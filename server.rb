@@ -45,5 +45,13 @@ class Server < Roda
     r.is 'contact' do
       view('contact', layout_opts: { locals: LAYOUT_LOCALS })
     end
+
+    r.is 'about' do
+      view('about', layout_opts: { locals: LAYOUT_LOCALS })
+    end
+
+    r.is 'faq' do
+      view('faq', layout_opts: { locals: LAYOUT_LOCALS })
+    end
   end
 end

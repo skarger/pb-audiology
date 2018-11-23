@@ -38,18 +38,10 @@ a:active {
         background: linear-gradient(to right, config('colors.red-lighter'), config('colors.pink-lightest') 99%), config('colors.teal-darkest');
     }
 }
-/*
+
 .related-links {
-    background: linear-gradient(config('colors.pink-lightest'), config('colors.red-lighter')), config('colors.teal-darkest');
+    align-self: end;
 }
-
-
-@screen md {
-    .related-links {
-        background: linear-gradient(to right, config('colors.pink-lightest') 1%, config('colors.red-lighter')), config('colors.teal-darkest');
-    }
-}
-*/
 
 .footer {
     background: linear-gradient(config('colors.teal-darker'), config('colors.teal-darkest')), config('colors.teal-darkest');

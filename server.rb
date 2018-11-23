@@ -35,11 +35,7 @@ class Server < Roda
     r.root do
       etag = Digest::SHA1.hexdigest(File.mtime('./views/home.erb').to_s)
       r.etag(etag, weak: true)
-      render('home')
-    end
-
-    r.is 'example' do
-      view('example', layout_opts: { locals: LAYOUT_LOCALS })
+      view('home', layout_opts: { locals: LAYOUT_LOCALS })
     end
 
     r.is 'contact' do

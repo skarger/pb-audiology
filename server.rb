@@ -29,6 +29,12 @@ class Server < Roda
     postal_code: POSTAL_CODE
   }.freeze
 
+  GOOGLE_MAPS_QUERY = '104+Newfield+Drive,Stamford+CT+06905'
+  CONTACT_PAGE_LOCALS = {
+    google_api_key: ENV['GOOGLE_API_KEY'],
+    google_maps_query: GOOGLE_MAPS_QUERY
+  }.freeze
+
   route do |r|
     r.public
 
@@ -39,7 +45,9 @@ class Server < Roda
     end
 
     r.is 'contact' do
-      view('contact', layout_opts: { locals: LAYOUT_LOCALS })
+      view('contact',
+           layout_opts: { locals: LAYOUT_LOCALS },
+           locals: CONTACT_PAGE_LOCALS)
     end
 
     r.is 'about' do

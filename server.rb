@@ -20,6 +20,8 @@ class Server < Roda
   POSTAL_CODE = '06905'
 
   LAYOUT_LOCALS = {
+    name: NAME,
+    credentials: CREDENTIALS,
     telephone: TELEPHONE,
     street_address: STREET_ADDRESS,
     address_locality: ADDRESS_LOCALITY,

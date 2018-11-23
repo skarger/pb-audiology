@@ -2,16 +2,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <head>
         <link rel="stylesheet" href="/main.css">
+        <script type="application/ld+json">
+            {
+                "@context": "http://schema.org",
+                "@type": "Person",
+                "name": "<%= name %>, <%= credentials %>",
+                "address": {
+                    "@type": "PostalAddress",
+                    "streetAddress": "<%= street_address %>",
+                    "addressLocality": "<%= address_locality %>",
+                    "addressRegion": "<%= address_region %>",
+                    "postalCode": "<%= postal_code %>"
+                },
+                "telephone": "<%= telephone %>"
+            }
+        </script>
     </head>
 
     <body class="h-full">
         <div class="wrapper">
-            <div class="header p-2 flex flex-col items-center justify-between sm:flex-row sm:items-stretch" itemscope itemtype="http://schema.org/Person">
-                <span itemprop="name"><%= NAME %>, <%= CREDENTIALS %></span>
-                <span itemprop="telephone"><%= telephone %></span>
-                <span class="flex justify-between sm:flex-col sm:justify-start" itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
-                    <span class="pr-2 sm:pr-0 sm:pb-2" itemprop="streetAddress"><%= street_address %></span>
-                    <span class="pl-2 sm:pl-0"><span itemprop="addressLocality"><%= address_locality %></span>, <span itemprop="addressRegion"><%= address_region %></span> <span itemprop="postalCode"><%= postal_code %></span></span>
+            <div class="header p-2 flex flex-col items-center justify-between sm:flex-row sm:items-stretch">
+                <span><%= name %>, <%= credentials %></span>
+                <span><%= telephone %></span>
+                <span class="flex justify-between sm:flex-col sm:justify-start">
+                    <span class="pr-2 sm:pr-0 sm:pb-2"><%= street_address %></span>
+                    <span class="pl-2 sm:pl-0"><span><%= address_locality %></span>, <span><%= address_region %></span> <span><%= postal_code %></span></span>
                 </span>
             </div>
             <div class="navigation p-2 flex justify-around items-center md:items-stretch md:flex-col md:justify-start">

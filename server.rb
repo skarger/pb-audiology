@@ -11,6 +11,22 @@ class Server < Roda
   plugin :render
   plugin :partials
 
+  NAME = 'Pauline G. Bailey'
+  CREDENTIALS = 'MA FAAA'
+  TELEPHONE = '(203) 329-2449'
+  STREET_ADDRESS = '104 Newfield Drive'
+  ADDRESS_LOCALITY = 'Stamford'
+  ADDRESS_REGION = 'CT'
+  POSTAL_CODE = '06905'
+
+  LAYOUT_LOCALS = {
+    telephone: TELEPHONE,
+    street_address: STREET_ADDRESS,
+    address_locality: ADDRESS_LOCALITY,
+    address_region: ADDRESS_REGION,
+    postal_code: POSTAL_CODE
+  }.freeze
+
   route do |r|
     r.public
 
@@ -21,7 +37,7 @@ class Server < Roda
     end
 
     r.is 'example' do
-      view('example')
+      view('example', layout_opts: { locals: LAYOUT_LOCALS })
     end
   end
 end

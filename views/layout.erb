@@ -6,12 +6,12 @@
 
     <body class="h-full">
         <div class="wrapper">
-            <div class="header p-2 flex flex-col items-center justify-between sm:flex-row sm:items-stretch">
-                <span>Pauline G. Bailey, MA FAAA</span>
-                <span>(203) 329-2449</span>
-                <span class="flex justify-between sm:flex-col sm:justify-start">
-                    <span class="pr-2 sm:pr-0 sm:pb-2">104 Newfield Drive</span>
-                    <span class="pl-2 sm:pl-0">Stamford, CT 06905</span>
+            <div class="header p-2 flex flex-col items-center justify-between sm:flex-row sm:items-stretch" itemscope itemtype="http://schema.org/Person">
+                <span itemprop="name"><%= NAME %>, <%= CREDENTIALS %></span>
+                <span itemprop="telephone"><%= telephone %></span>
+                <span class="flex justify-between sm:flex-col sm:justify-start" itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
+                    <span class="pr-2 sm:pr-0 sm:pb-2" itemprop="streetAddress"><%= street_address %></span>
+                    <span class="pl-2 sm:pl-0"><span itemprop="addressLocality"><%= address_locality %></span>, <span itemprop="addressRegion"><%= address_region %></span> <span itemprop="postalCode"><%= postal_code %></span></span>
                 </span>
             </div>
             <div class="navigation p-2 flex justify-around items-center md:items-stretch md:flex-col md:justify-start">

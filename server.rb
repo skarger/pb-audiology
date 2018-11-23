@@ -30,9 +30,15 @@ class Server < Roda
   }.freeze
 
   GOOGLE_MAPS_QUERY = '104+Newfield+Drive,Stamford+CT+06905'
+  GOOGLE_MAPS_EMBED_URL = 'https://www.google.com/maps/embed/v1/place' \
+    "?key=#{ENV['GOOGLE_API_KEY']}" \
+    "&q=#{GOOGLE_MAPS_QUERY}" \
+    '&zoom=12' \
+    '&attribution_source=Google+Maps+Embed+API' \
+    "&attribution_web_url=#{ENV['PUBLIC_URL']}" \
+    "attribution_ios_deep_link_id=comgooglemaps://?daddr=#{GOOGLE_MAPS_QUERY}"
   CONTACT_PAGE_LOCALS = {
-    google_api_key: ENV['GOOGLE_API_KEY'],
-    google_maps_query: GOOGLE_MAPS_QUERY
+    google_maps_embed_url: GOOGLE_MAPS_EMBED_URL
   }.freeze
 
   route do |r|

@@ -41,27 +41,31 @@ class Server < Roda
     google_maps_embed_url: GOOGLE_MAPS_EMBED_URL
   }.freeze
 
+  def layout_locals(request)
+    LAYOUT_LOCALS.merge(current_path: request.path)
+  end
+
   route do |r|
     r.public
 
     r.root do
       etag = Digest::SHA1.hexdigest(File.mtime('./views/home.erb').to_s)
       r.etag(etag, weak: true)
-      view('home', layout_opts: { locals: LAYOUT_LOCALS })
+      view('home', layout_opts: { locals: layout_locals(r) })
     end
 
     r.is 'contact' do
       view('contact',
-           layout_opts: { locals: LAYOUT_LOCALS },
+           layout_opts: { locals: layout_locals(r) },
            locals: CONTACT_PAGE_LOCALS)
     end
 
     r.is 'about' do
-      view('about', layout_opts: { locals: LAYOUT_LOCALS })
+      view('about', layout_opts: { locals: layout_locals(r) })
     end
 
     r.is 'faq' do
-      view('faq', layout_opts: { locals: LAYOUT_LOCALS })
+      view('faq', layout_opts: { locals: layout_locals(r) })
     end
   end
 end

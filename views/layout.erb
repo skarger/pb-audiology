@@ -30,12 +30,20 @@
                 </span>
             </div>
             <div class="navigation p-2 flex justify-around items-center md:items-stretch md:flex-col md:justify-start">
-                <a class="md:pb-2" href="/"><span>Home</span></a>
-                <a class="md:pb-2" href="/about"><span>About</span></a>
-                <a class="md:pb-2" href="/contact"><span>Contact Us</span></a>
-                <a class="md:pb-2" href="/faq"><span>FAQ</span></a>
+                <a class="<%= current_path == '/' ? 'text-orange bg-teal-darker rounded-lg' : 'text-teal-darkest' %>" href="/">
+                    <div class="p-4">Home</div>
+                </a>
+                <a class="<%= current_path == '/about' ? 'text-orange bg-teal-darker rounded-lg' : 'text-teal-darkest' %>" href="/about">
+                    <div class="p-4">About</div>
+                </a>
+                <a class="<%= current_path == '/contact' ? 'text-orange bg-teal-darker rounded-lg' : 'text-teal-darkest' %>" href="/contact">
+                    <div class="p-4">Contact Us</div>
+                </a>
+                <a class="<%= current_path == '/faq' ? 'text-orange bg-teal-darker rounded-lg' : 'text-teal-darkest' %>" href="/faq">
+                    <div class="p-4">FAQ</div>
+                </a>
             </div>
-            <div class="main p-2 text-lg leading-tight">
+            <div class="main p-2 text-xl leading-loose md:leading-normal">
                 <%= yield %>
             </div>
             <div class="related-links p-2">

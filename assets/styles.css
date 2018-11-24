@@ -7,18 +7,23 @@
  */
 
 .aba-image {
-    max-width: 240px;
+    max-width: 120px;
+}
+
+@screen md {
+    .aba-image {
+        max-width: 180px;
+    }
 }
 
 a, a:visited {
-    color: inherit;
-    text-decoration: none;
-    @apply font-semibold;
+    @apply no-underline;
+    @apply font-bold;
     @apply text-lg;
 }
 
 a:hover {
-    @apply text-orange-darker;
+    @apply text-orange-dark;
 }
 
 a:active {
@@ -63,7 +68,7 @@ a:active {
 @screen md {
     .wrapper {
         grid-template-rows: 150px 15fr 3fr 30px;
-        grid-template-columns: 9rem auto;
+        grid-template-columns: 10rem auto;
     }
 
     .header {
@@ -91,7 +96,7 @@ a:active {
 @screen xl {
     .wrapper {
         grid-template-rows: 150px 15fr 30px;
-        grid-template-columns: 9rem 3fr 1fr;
+        grid-template-columns: 10rem 3fr 1fr;
     }
 
     .main {

@@ -53,7 +53,7 @@ Install git hooks that will run rubocop on commit:
 bundle exec overcommit --install
 ```
 
-Environment: Create a `.env` file.
+Environment: Create a `.env` file. Copy `.env.example`
 
 We use the Google Maps API to embed a map with the office location.
 

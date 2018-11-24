@@ -9,6 +9,7 @@ gem 'roda'
 gem 'tilt'
 
 group :test, :development do
+  gem 'dotenv'
   gem 'pry'
   gem 'rerun'
   gem 'rubocop', require: false

@@ -5,13 +5,109 @@
 /*
  * See https://tailwindcss.com/docs/installation
  */
-@tailwind preflight;
-
-@tailwind components;
-
-@tailwind utilities;
 
 .aba-image {
-    max-height: 100px;
-    max-width: 219px;
+    max-width: 120px;
 }
+
+@screen md {
+    .aba-image {
+        max-width: 180px;
+    }
+}
+
+a, a:visited {
+    @apply no-underline;
+    @apply font-bold;
+    @apply text-lg;
+}
+
+a:hover {
+    @apply text-orange-dark;
+}
+
+a:active {
+    @apply text-orange;
+}
+
+.header {
+    background: linear-gradient(config('colors.teal-darkest'), config('colors.teal-darker')), config('colors.teal-darkest');
+}
+
+.navigation {
+    background: linear-gradient(config('colors.red-lighter'), config('colors.pink-lightest')), config('colors.teal-darkest');
+}
+
+@screen md {
+    .navigation {
+        background: linear-gradient(to right, config('colors.red-lighter'), config('colors.pink-lightest') 99%), config('colors.teal-darkest');
+    }
+}
+
+.related-links {
+    align-self: end;
+}
+
+.footer {
+    background: linear-gradient(config('colors.teal-darker'), config('colors.teal-darkest')), config('colors.teal-darkest');
+}
+
+.wrapper {
+    display: grid;
+    grid-template-rows: 150px 70px 15fr 3fr 30px;
+    @apply w-full;
+    @apply h-full;
+}
+
+@screen sm {
+    .wrapper {
+        grid-template-rows: 150px 70px 15fr 3fr 30px;
+    }
+}
+
+@screen md {
+    .wrapper {
+        grid-template-rows: 150px 15fr 3fr 30px;
+        grid-template-columns: 10rem auto;
+    }
+
+    .header {
+        grid-column: 1 / -1;
+    }
+
+    .navigation {
+        grid-column: 1 / 2;
+        grid-row: 2 / -2;
+    }
+
+    .main {
+        grid-column: 2 / -1;
+    }
+
+    .related-links {
+        grid-column: 2 / -1;
+    }
+
+    .footer {
+        grid-column: 1 / -1;
+    }
+}
+
+@screen xl {
+    .wrapper {
+        grid-template-rows: 150px 15fr 30px;
+        grid-template-columns: 10rem 3fr 1fr;
+    }
+
+    .main {
+        grid-column: 2 / 3;
+    }
+
+    .related-links {
+        grid-column: 3 / -1;
+    }
+}
+
+@tailwind preflight;
+@tailwind components;
+@tailwind utilities;

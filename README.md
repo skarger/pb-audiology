@@ -53,6 +53,16 @@ Install git hooks that will run rubocop on commit:
 bundle exec overcommit --install
 ```
 
+Environment: Create a `.env` file. Copy `.env.example`
+
+We use the Google Maps API to embed a map with the office location.
+
+Obtain a development Google API key. Someone with access to our [Google Cloud console](https://console.cloud.google.com/apis/credentials?organizationId=0&project=pb-audiology) must provide the key. The in `.env`, create an entry for it:
+
+```
+GOOGLE_API_KEY=...
+```
+
 ### Run the development server
 
 We use the [Rerun](https://github.com/alexch/rerun) gem to automatically restart the app when files change. To run the web server:

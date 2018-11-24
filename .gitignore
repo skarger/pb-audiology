@@ -1,6 +1,8 @@
 # compiled assets for this project
 /public/main.*
 
+/**/.DS_Store
+
 *.gem
 *.rbc
 /.config
@@ -17,7 +19,7 @@
 yarn-error.log
 
 # Used by dotenv library to load environment variables.
-# .env
+.env
 
 ## Specific to RubyMotion:
 .dat*

@@ -4,6 +4,7 @@ source 'https://rubygems.org'
 
 ruby '2.5.3'
 
+gem 'mail'
 gem 'puma'
 gem 'roda'
 gem 'tilt'

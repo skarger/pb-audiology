@@ -10,6 +10,11 @@ class Server < Roda
   plugin :caching
   plugin :render
   plugin :partials
+  plugin :default_headers, if %(production staging).include?(ENV['RACK_ENV'])
+                             { 'Strict-Transport-Security' => 'max-age=60' }
+                           else
+                             {}
+                           end
 
   NAME = 'Pauline G. Bailey'
   CREDENTIALS = 'MA FAAA'

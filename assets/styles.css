@@ -30,6 +30,20 @@ a:active {
     @apply text-orange;
 }
 
+/* we need to override the link styles for the header */
+/* TODO: revise link styles to specialize the nav links instead */
+a#header-telephone {
+    @apply font-normal;
+    @apply text-orange;
+    @apply text-xl;
+}
+
+@screen md {
+    a#header-telephone {
+        @apply text-2xl;
+    }
+}
+
 .header {
     background: linear-gradient(config('colors.teal-darkest'), config('colors.teal-darker')), config('colors.teal-darkest');
 }

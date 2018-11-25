@@ -44,6 +44,10 @@ a#header-telephone {
     }
 }
 
+input::placeholder, textarea::placeholder {
+    @apply italic;
+}
+
 .header {
     background: linear-gradient(config('colors.teal-darkest'), config('colors.teal-darker')), config('colors.teal-darkest');
 }

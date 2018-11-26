@@ -11,7 +11,7 @@ class Server < Roda
   plugin :render
   plugin :partials
 
-  headers = if %(production staging).include?(ENV['RACK_ENV'])
+  HEADERS = if %(production staging).include?(ENV['RACK_ENV'])
               max_age = ENV['STRICT_TRANSPORT_SECURITY_MAX_AGE']
               # rubocop:disable Metrics/LineLength
               { 'Strict-Transport-Security' => "max-age=#{max_age}; includeSubDomains" }
@@ -19,7 +19,7 @@ class Server < Roda
             else
               {}
             end
-  plugin :default_headers, headers
+  plugin :default_headers, HEADERS
 
   NAME = 'Pauline G. Bailey'
   CREDENTIALS = 'MA FAAA'

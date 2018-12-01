@@ -19,3 +19,7 @@ group :development do
   gem 'overcommit'
   gem 'yard'
 end
+
+group :test do
+  gem 'rspec'
+end

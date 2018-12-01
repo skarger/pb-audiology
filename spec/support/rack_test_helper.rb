@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
-require 'rack/test'
-require 'logger'
+require "rack/test"
+require "logger"
 
-require File.expand_path('../../server.rb', __dir__)
+require File.expand_path("../../server.rb", __dir__)
 
 module RackTestHelper
   def self.included(mod)
@@ -16,7 +16,7 @@ module RackTestHelper
 
   def test_rack_env
     {
-      'rack.logger' => Logger.new('log/test.log')
+      "rack.logger" => Logger.new("log/test.log")
     }
   end
 end

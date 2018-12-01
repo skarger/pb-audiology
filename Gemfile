@@ -1,26 +1,26 @@
 # frozen_string_literal: true
 
-source 'https://rubygems.org'
+source "https://rubygems.org"
 
-ruby '2.5.3'
+ruby "2.5.3"
 
-gem 'puma'
-gem 'roda'
-gem 'tilt'
+gem "puma"
+gem "roda"
+gem "tilt"
 
 group :test, :development do
-  gem 'dotenv'
-  gem 'pry'
-  gem 'rerun'
-  gem 'rubocop', require: false
+  gem "dotenv"
+  gem "pry"
+  gem "rerun"
+  gem "rubocop", require: false
 end
 
 group :development do
-  gem 'overcommit'
-  gem 'yard'
+  gem "overcommit"
+  gem "yard"
 end
 
 group :test do
-  gem 'rack-test'
-  gem 'rspec'
+  gem "rack-test"
+  gem "rspec"
 end

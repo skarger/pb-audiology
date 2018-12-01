@@ -78,8 +78,11 @@ class Server < Roda
 
     r.is "contact_requests" do
       r.post do
-        response.status = 201
-        ""
+        r.redirect "/contact_requests"
+      end
+
+      r.get do
+        view("contact_requests", layout_opts: { locals: layout_locals(r) })
       end
     end
 

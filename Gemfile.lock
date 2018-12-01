@@ -27,6 +27,8 @@ GEM
       method_source (~> 0.9.0)
     puma (3.12.0)
     rack (2.0.6)
+    rack-test (1.1.0)
+      rack (>= 1.0, < 3)
     rainbow (3.0.0)
     rb-fsevent (0.10.3)
     rb-inotify (0.9.10)
@@ -70,6 +72,7 @@ DEPENDENCIES
   overcommit
   pry
   puma
+  rack-test
   rerun
   roda
   rspec

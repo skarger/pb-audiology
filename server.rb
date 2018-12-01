@@ -1,24 +1,34 @@
 # frozen_string_literal: true
 
-require 'roda'
-require 'digest'
+require "roda"
+require "digest"
 
 # The server app entrypoint. We boot it from config.ru.
 # See http://roda.jeremyevans.net/ for information about the Roda framework.
 class Server < Roda
-  plugin :public, gzip: true, default_mime: 'text/html'
+  plugin :public, gzip: true, default_mime: "text/html"
   plugin :caching
   plugin :render
   plugin :partials
 
-  NAME = 'Pauline G. Bailey'
-  CREDENTIALS = 'MA FAAA'
-  TELEPHONE = '(203) 329-2449'
-  STREET_ADDRESS = '104 Newfield Drive'
-  ADDRESS_LOCALITY = 'Stamford'
-  ADDRESS_REGION = 'CT'
-  POSTAL_CODE = '06905'
-  GOOGLE_MAPS_LINK = 'https://www.google.com/maps/place/104+Newfield+Dr,+Stamford,+CT+06905/@41.1084539,-73.5362619'
+  HEADERS = if %w[production staging].include?(ENV["RACK_ENV"])
+              max_age = ENV["STRICT_TRANSPORT_SECURITY_MAX_AGE"]
+              # rubocop:disable Metrics/LineLength
+              { "Strict-Transport-Security" => "max-age=#{max_age}; includeSubDomains" }
+              # rubocop:enable Metrics/LineLength
+            else
+              {}
+            end
+  plugin :default_headers, HEADERS
+
+  NAME = "Pauline G. Bailey"
+  CREDENTIALS = "MA FAAA"
+  TELEPHONE = "(203) 329-2449"
+  STREET_ADDRESS = "104 Newfield Drive"
+  ADDRESS_LOCALITY = "Stamford"
+  ADDRESS_REGION = "CT"
+  POSTAL_CODE = "06905"
+  GOOGLE_MAPS_LINK = "https://www.google.com/maps/place/104+Newfield+Dr,+Stamford,+CT+06905/@41.1084539,-73.5362619"
 
   CONTACT_INFO = {
     telephone: TELEPHONE,
@@ -34,12 +44,12 @@ class Server < Roda
     credentials: CREDENTIALS
   }.merge(CONTACT_INFO).freeze
 
-  GOOGLE_MAPS_QUERY = '104+Newfield+Drive,Stamford+CT+06905'
-  GOOGLE_MAPS_EMBED_URL = 'https://www.google.com/maps/embed/v1/place' \
+  GOOGLE_MAPS_QUERY = "104+Newfield+Drive,Stamford+CT+06905"
+  GOOGLE_MAPS_EMBED_URL = "https://www.google.com/maps/embed/v1/place" \
     "?key=#{ENV['GOOGLE_API_KEY']}" \
     "&q=#{GOOGLE_MAPS_QUERY}" \
-    '&zoom=12' \
-    '&attribution_source=Google+Maps+Embed+API' \
+    "&zoom=12" \
+    "&attribution_source=Google+Maps+Embed+API" \
     "&attribution_web_url=#{ENV['PUBLIC_URL']}" \
     "attribution_ios_deep_link_id=comgooglemaps://?daddr=#{GOOGLE_MAPS_QUERY}"
 
@@ -55,23 +65,30 @@ class Server < Roda
     r.public
 
     r.root do
-      etag = Digest::SHA1.hexdigest(File.mtime('./views/home.erb').to_s)
+      etag = Digest::SHA1.hexdigest(File.mtime("./views/home.erb").to_s)
       r.etag(etag, weak: true)
-      view('home', layout_opts: { locals: layout_locals(r) })
+      view("home", layout_opts: { locals: layout_locals(r) })
     end
 
-    r.is 'contact' do
-      view('contact',
+    r.is "contact" do
+      view("contact",
            layout_opts: { locals: layout_locals(r) },
            locals: CONTACT_PAGE_LOCALS)
     end
 
-    r.is 'about' do
-      view('about', layout_opts: { locals: layout_locals(r) })
+    r.is "contact_requests" do
+      r.post do
+        response.status = 201
+        ""
+      end
     end
 
-    r.is 'faq' do
-      view('faq', layout_opts: { locals: layout_locals(r) })
+    r.is "about" do
+      view("about", layout_opts: { locals: layout_locals(r) })
+    end
+
+    r.is "faq" do
+      view("faq", layout_opts: { locals: layout_locals(r) })
     end
   end
 end

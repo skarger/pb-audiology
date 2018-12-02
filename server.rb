@@ -86,9 +86,11 @@ class Server < Roda
     end
 
     r.is "contact" do
+      contact_request_result = r.params["contact_request_result"]
       view("contact",
            layout_opts: { locals: layout_locals(r) },
-           locals: CONTACT_PAGE_LOCALS)
+           locals: CONTACT_PAGE_LOCALS
+            .merge(contact_request_result: contact_request_result))
     end
 
     r.is "contact_requests" do

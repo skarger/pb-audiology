@@ -6,7 +6,7 @@
             {
                 "@context": "http://schema.org",
                 "@type": "Person",
-                "name": "<%= name %>, <%= credentials %>",
+                "name": "<%= provider_name %>, <%= provider_credentials %>",
                 "address": {
                     "@type": "PostalAddress",
                     "streetAddress": "<%= street_address %>",
@@ -22,7 +22,7 @@
     <body class="bg-white font-sans text-teal-darkest">
         <div class="wrapper">
             <div class="header whitespace-no-wrap font-serif text-xl md:text-2xl text-orange px-4 py-2 flex flex-col items-center justify-between lg:flex-row lg:items-stretch">
-                <span class="text-2xl md:text-3xl"><%= name %>, <span class="text-orange-lighter"><%= credentials %></span></span>
+                <span class="text-2xl md:text-3xl"><%= provider_name %>, <span class="text-orange-lighter"><%= provider_credentials %></span></span>
                 <span><a id="header-telephone" href="tel:<%= telephone %>"><%= telephone %></a></span>
                 <span class="flex justify-between lg:flex-col lg:justify-start">
                     <span class="pr-2 lg:pr-0 lg:pb-2"><%= street_address %></span>

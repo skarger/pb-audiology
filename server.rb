@@ -22,8 +22,8 @@ class Server < Roda
             end
   plugin :default_headers, HEADERS
 
-  NAME = "Pauline G. Bailey"
-  CREDENTIALS = "MA FAAA"
+  PROVIDER_NAME = "Pauline G. Bailey"
+  PROVIDER_CREDENTIALS = "MA FAAA"
   TELEPHONE = "(203) 329-2449"
   STREET_ADDRESS = "104 Newfield Drive"
   ADDRESS_LOCALITY = "Stamford"
@@ -41,8 +41,8 @@ class Server < Roda
   }.freeze
 
   LAYOUT_LOCALS = {
-    name: NAME,
-    credentials: CREDENTIALS
+    provider_name: PROVIDER_NAME,
+    provider_credentials: PROVIDER_CREDENTIALS
   }.merge(CONTACT_INFO).freeze
 
   GOOGLE_MAPS_QUERY = "104+Newfield+Drive,Stamford+CT+06905"
@@ -87,10 +87,13 @@ class Server < Roda
 
     r.is "contact" do
       contact_request_result = r.params["contact_request_result"]
+      contact_request_name = "value from session"
       view("contact",
            layout_opts: { locals: layout_locals(r) },
-           locals: CONTACT_PAGE_LOCALS
-            .merge(contact_request_result: contact_request_result))
+           locals: CONTACT_PAGE_LOCALS.merge(
+             contact_request_result: contact_request_result,
+             contact_request_name: contact_request_name
+           ))
     end
 
     r.is "contact_requests" do

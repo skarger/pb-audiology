@@ -6,10 +6,11 @@ require "digest"
 # The server app entrypoint. We boot it from config.ru.
 # See http://roda.jeremyevans.net/ for information about the Roda framework.
 class Server < Roda
-  plugin :public, gzip: true, default_mime: "text/html"
   plugin :caching
-  plugin :render
+  plugin :public, gzip: true, default_mime: "text/html"
   plugin :partials
+  plugin :render
+  plugin :head
 
   HEADERS = if %w[production staging].include?(ENV["RACK_ENV"])
               max_age = ENV["STRICT_TRANSPORT_SECURITY_MAX_AGE"]
@@ -62,6 +63,20 @@ class Server < Roda
   end
 
   route do |r|
+    unless r.ssl? || %w[test development].include?(ENV["RACK_ENV"])
+      host = r.host
+      path = r.fullpath
+      location = "https://#{host}#{path}"
+
+      r.on method: %i[get head] do
+        r.redirect(location, 302)
+      end
+
+      r.on do
+        r.redirect(location, 307)
+      end
+    end
+
     r.public
 
     r.root do

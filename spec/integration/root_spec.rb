@@ -26,6 +26,8 @@ RSpec.describe "All requests" do
             eval(request) # rubocop:disable Security/Eval
 
             expect(last_response.status).to eq(302)
+            expect(last_response.headers["LOCATION"])
+              .to eq("https://example.org/")
           end
         end
 
@@ -52,6 +54,8 @@ RSpec.describe "All requests" do
             eval(request) # rubocop:disable Security/Eval
 
             expect(last_response.status).to eq(307)
+            expect(last_response.headers["LOCATION"])
+              .to eq("https://example.org/")
           end
         end
       end

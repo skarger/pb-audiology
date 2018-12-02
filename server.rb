@@ -58,14 +58,16 @@ class Server < Roda
 
   route do |r|
     unless r.ssl? || %w[test development].include?(ENV["RACK_ENV"])
+      host = r.host
       path = r.fullpath
+      location = "https://#{host}#{path}"
 
       r.on method: %i[get head] do
-        r.redirect(path, 302)
+        r.redirect(location, 302)
       end
 
       r.on do
-        r.redirect(path, 307)
+        r.redirect(location, 307)
       end
     end
 

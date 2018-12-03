@@ -55,10 +55,16 @@ class Server < Roda
     end
 
     r.is "contact" do
-      contact_request_result = r.params["contact_request_result"]
       first_name = r.session["contact_request_first_name"]
       last_name = r.session["contact_request_last_name"]
       email = r.session["contact_request_email"]
+      phone = r.session["contact_request_phone"]
+      message = r.session["contact_request_message"]
+      contact_request_result = r.session["contact_request_result"]
+
+      # capture values to display in the form immediately after submit,
+      # clear session if successful so future page visits show an empty form
+      clear_session if contact_request_result == "success"
 
       view("contact",
            layout_opts: { locals: layout_locals(r) },
@@ -66,7 +72,9 @@ class Server < Roda
              contact_request_result: contact_request_result,
              contact_request_first_name: first_name,
              contact_request_last_name: last_name,
-             contact_request_email: email
+             contact_request_email: email,
+             contact_request_phone: phone,
+             contact_request_message: message
            ))
     end
 
@@ -75,14 +83,23 @@ class Server < Roda
         r.session["contact_request_first_name"] = r.params["first_name"]
         r.session["contact_request_last_name"] = r.params["last_name"]
         r.session["contact_request_email"] = r.params["email"]
+        r.session["contact_request_phone"] = r.params["phone"]
         r.session["contact_request_message"] = r.params["message"]
+
+        successful = true
+        r.session["contact_request_result"] = if successful
+                                                "success"
+                                              else
+                                                "failure"
+                                              end
+
         begin
           r.persist_session(r.env, r.session)
         rescue Roda::RodaPlugins::Sessions::CookieTooLarge => error
           raise error
         end
 
-        r.redirect "/contact?contact_request_result=success"
+        r.redirect "/contact"
       end
 
       r.get do

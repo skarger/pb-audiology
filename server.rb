@@ -8,6 +8,8 @@ require "digest"
 class Server < Roda
   plugin :caching
   plugin :public, gzip: true, default_mime: "text/html"
+  plugin :request_headers
+  plugin :sessions, secret: ENV["SESSION_SECRET"], key: ENV["SESSION_KEY"]
   plugin :partials
   plugin :render
   plugin :head
@@ -87,18 +89,23 @@ class Server < Roda
 
     r.is "contact" do
       contact_request_result = r.params["contact_request_result"]
-      contact_request_name = "value from session"
+
       view("contact",
            layout_opts: { locals: layout_locals(r) },
            locals: CONTACT_PAGE_LOCALS.merge(
              contact_request_result: contact_request_result,
-             contact_request_name: contact_request_name
+             contact_request_name: session["contact_request_name"],
+             contact_request_email: session["contact_request_email"]
            ))
     end
 
     r.is "contact_requests" do
       r.post do
-        r.redirect "/contact_requests"
+        session["contact_request_name"] = r.params["name"]
+        session["contact_request_email"] = r.params["email"]
+        r.persist_session(r.env, session)
+
+        r.redirect "/contact"
       end
 
       r.get do

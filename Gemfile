@@ -4,6 +4,7 @@ source "https://rubygems.org"
 
 ruby "2.5.3"
 
+gem "erubi" # required for :escape option to Roda render plugin
 gem "mail"
 gem "puma"
 gem "roda"

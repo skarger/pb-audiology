@@ -3,16 +3,19 @@
 require "roda"
 require "digest"
 
+$LOAD_PATH.unshift File.dirname(__FILE__)
+require "dependencies"
+
 # The server app entrypoint. We boot it from config.ru.
 # See http://roda.jeremyevans.net/ for information about the Roda framework.
 class Server < Roda
   plugin :caching
   plugin :public, gzip: true, default_mime: "text/html"
+  plugin :head
   plugin :request_headers
   plugin :sessions, secret: ENV["SESSION_SECRET"], key: ENV["SESSION_KEY"]
+  plugin :render, escape: true
   plugin :partials
-  plugin :render
-  plugin :head
 
   HEADERS = if %w[production staging].include?(ENV["RACK_ENV"])
               max_age = ENV["STRICT_TRANSPORT_SECURITY_MAX_AGE"]
@@ -23,42 +26,6 @@ class Server < Roda
               {}
             end
   plugin :default_headers, HEADERS
-
-  PROVIDER_NAME = "Pauline G. Bailey"
-  PROVIDER_CREDENTIALS = "MA FAAA"
-  TELEPHONE = "(203) 329-2449"
-  STREET_ADDRESS = "104 Newfield Drive"
-  ADDRESS_LOCALITY = "Stamford"
-  ADDRESS_REGION = "CT"
-  POSTAL_CODE = "06905"
-  GOOGLE_MAPS_LINK = "https://www.google.com/maps/place/104+Newfield+Dr,+Stamford,+CT+06905/@41.1084539,-73.5362619"
-
-  CONTACT_INFO = {
-    telephone: TELEPHONE,
-    street_address: STREET_ADDRESS,
-    address_locality: ADDRESS_LOCALITY,
-    address_region: ADDRESS_REGION,
-    postal_code: POSTAL_CODE,
-    google_maps_link: GOOGLE_MAPS_LINK
-  }.freeze
-
-  LAYOUT_LOCALS = {
-    provider_name: PROVIDER_NAME,
-    provider_credentials: PROVIDER_CREDENTIALS
-  }.merge(CONTACT_INFO).freeze
-
-  GOOGLE_MAPS_QUERY = "104+Newfield+Drive,Stamford+CT+06905"
-  GOOGLE_MAPS_EMBED_URL = "https://www.google.com/maps/embed/v1/place" \
-    "?key=#{ENV['GOOGLE_API_KEY']}" \
-    "&q=#{GOOGLE_MAPS_QUERY}" \
-    "&zoom=12" \
-    "&attribution_source=Google+Maps+Embed+API" \
-    "&attribution_web_url=#{ENV['PUBLIC_URL']}" \
-    "attribution_ios_deep_link_id=comgooglemaps://?daddr=#{GOOGLE_MAPS_QUERY}"
-
-  CONTACT_PAGE_LOCALS = {
-    google_maps_embed_url: GOOGLE_MAPS_EMBED_URL
-  }.merge(CONTACT_INFO).freeze
 
   def layout_locals(request)
     LAYOUT_LOCALS.merge(current_path: request.path)
@@ -108,7 +75,12 @@ class Server < Roda
         r.session["contact_request_first_name"] = r.params["first_name"]
         r.session["contact_request_last_name"] = r.params["last_name"]
         r.session["contact_request_email"] = r.params["email"]
-        r.persist_session(r.env, r.session)
+        r.session["contact_request_message"] = r.params["message"]
+        begin
+          r.persist_session(r.env, r.session)
+        rescue Roda::RodaPlugins::Sessions::CookieTooLarge => error
+          raise error
+        end
 
         r.redirect "/contact?contact_request_result=success"
       end

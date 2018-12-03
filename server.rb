@@ -94,18 +94,18 @@ class Server < Roda
            layout_opts: { locals: layout_locals(r) },
            locals: CONTACT_PAGE_LOCALS.merge(
              contact_request_result: contact_request_result,
-             contact_request_name: session["contact_request_name"],
-             contact_request_email: session["contact_request_email"]
+             contact_request_name: r.session["contact_request_name"],
+             contact_request_email: r.session["contact_request_email"]
            ))
     end
 
     r.is "contact_requests" do
       r.post do
-        session["contact_request_name"] = r.params["name"]
-        session["contact_request_email"] = r.params["email"]
-        r.persist_session(r.env, session)
+        r.session["contact_request_name"] = r.params["name"]
+        r.session["contact_request_email"] = r.params["email"]
+        r.persist_session(r.env, r.session)
 
-        r.redirect "/contact"
+        r.redirect "/contact?contact_request_result=success"
       end
 
       r.get do

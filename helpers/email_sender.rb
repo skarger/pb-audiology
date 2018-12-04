@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require "mail"
+require "pry"
 require "dotenv/load"
 
 smtp_server = "smtp.gmail.com"

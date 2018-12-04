@@ -7,9 +7,12 @@ RSpec.describe "Requests to /contact_requests" do
 
   describe "POST /contact_requests" do
     it "responds with a temporary redirect" do
+      allow(ContactRequestMailer).to receive(:call)
+
       post "/contact_requests", {}, test_rack_env
 
       expect(last_response.status).to eq(302)
+      expect(ContactRequestMailer).to have_received(:call)
     end
   end
 

@@ -86,6 +86,22 @@ class Server < Roda
         r.session["contact_request_phone"] = r.params["phone"]
         r.session["contact_request_message"] = r.params["message"]
 
+        full_name = "#{r.params['first_name']} #{r.params['last_name']}"
+        body = render("contact_request_email",
+                      locals: {
+                        full_name: full_name,
+                        email: r.params["email"],
+                        phone: r.params["phone"],
+                        message: r.params["message"]
+                      })
+
+        ContactRequestMailer.call(
+          full_name: full_name,
+          email: r.params["email"],
+          phone: r.params["phone"],
+          body: body
+        )
+
         successful = true
         r.session["contact_request_result"] = if successful
                                                 "success"

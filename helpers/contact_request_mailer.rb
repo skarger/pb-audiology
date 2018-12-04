@@ -24,13 +24,13 @@ class ContactRequestMailer
   end
 
   def email_to_provider
-    full_name = full_name
-    body = body
+    subject = "WEBSITE CONTACT REQUEST from #{full_name}"
+    body = self.body
 
     Mail.new do
       from(ENV["CONTACT_NOTIFICATION_EMAIL_DESTINATION"])
       to(ENV["CONTACT_NOTIFICATION_EMAIL_DESTINATION"])
-      subject("WEBSITE CONTACT REQUEST from #{full_name}")
+      subject(subject)
       body(body)
     end
   end

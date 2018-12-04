@@ -3,14 +3,19 @@
 require "roda"
 require "digest"
 
+$LOAD_PATH.unshift File.dirname(__FILE__)
+require "dependencies"
+
 # The server app entrypoint. We boot it from config.ru.
 # See http://roda.jeremyevans.net/ for information about the Roda framework.
 class Server < Roda
   plugin :caching
   plugin :public, gzip: true, default_mime: "text/html"
-  plugin :partials
-  plugin :render
   plugin :head
+  plugin :request_headers
+  plugin :sessions, secret: ENV["SESSION_SECRET"], key: ENV["SESSION_KEY"]
+  plugin :render, escape: true
+  plugin :partials
 
   HEADERS = if %w[production staging].include?(ENV["RACK_ENV"])
               max_age = ENV["STRICT_TRANSPORT_SECURITY_MAX_AGE"]
@@ -21,36 +26,6 @@ class Server < Roda
               {}
             end
   plugin :default_headers, HEADERS
-
-  NAME = "Pauline G. Bailey"
-  CREDENTIALS = "MA FAAA"
-  TELEPHONE = "(203) 329-2449"
-  STREET_ADDRESS = "104 Newfield Drive"
-  ADDRESS_LOCALITY = "Stamford"
-  ADDRESS_REGION = "CT"
-  POSTAL_CODE = "06905"
-
-  LAYOUT_LOCALS = {
-    name: NAME,
-    credentials: CREDENTIALS,
-    telephone: TELEPHONE,
-    street_address: STREET_ADDRESS,
-    address_locality: ADDRESS_LOCALITY,
-    address_region: ADDRESS_REGION,
-    postal_code: POSTAL_CODE
-  }.freeze
-
-  GOOGLE_MAPS_QUERY = "104+Newfield+Drive,Stamford+CT+06905"
-  GOOGLE_MAPS_EMBED_URL = "https://www.google.com/maps/embed/v1/place" \
-    "?key=#{ENV['GOOGLE_API_KEY']}" \
-    "&q=#{GOOGLE_MAPS_QUERY}" \
-    "&zoom=12" \
-    "&attribution_source=Google+Maps+Embed+API" \
-    "&attribution_web_url=#{ENV['PUBLIC_URL']}" \
-    "attribution_ios_deep_link_id=comgooglemaps://?daddr=#{GOOGLE_MAPS_QUERY}"
-  CONTACT_PAGE_LOCALS = {
-    google_maps_embed_url: GOOGLE_MAPS_EMBED_URL
-  }.freeze
 
   def layout_locals(request)
     LAYOUT_LOCALS.merge(current_path: request.path)
@@ -80,15 +55,71 @@ class Server < Roda
     end
 
     r.is "contact" do
+      first_name = r.session["contact_request_first_name"]
+      last_name = r.session["contact_request_last_name"]
+      email = r.session["contact_request_email"]
+      phone = r.session["contact_request_phone"]
+      message = r.session["contact_request_message"]
+      contact_request_result = r.session["contact_request_result"]
+
+      # capture values to display in the form immediately after submit,
+      # clear session if successful so future page visits show an empty form
+      clear_session if contact_request_result == "success"
+
       view("contact",
            layout_opts: { locals: layout_locals(r) },
-           locals: CONTACT_PAGE_LOCALS)
+           locals: CONTACT_PAGE_LOCALS.merge(
+             contact_request_result: contact_request_result,
+             contact_request_first_name: first_name,
+             contact_request_last_name: last_name,
+             contact_request_email: email,
+             contact_request_phone: phone,
+             contact_request_message: message
+           ))
     end
 
     r.is "contact_requests" do
       r.post do
-        response.status = 201
-        ""
+        r.session["contact_request_first_name"] = r.params["first_name"]
+        r.session["contact_request_last_name"] = r.params["last_name"]
+        r.session["contact_request_email"] = r.params["email"]
+        r.session["contact_request_phone"] = r.params["phone"]
+        r.session["contact_request_message"] = r.params["message"]
+
+        full_name = "#{r.params['first_name']} #{r.params['last_name']}"
+        body = render("contact_request_email",
+                      locals: {
+                        full_name: full_name,
+                        email: r.params["email"],
+                        phone: r.params["phone"],
+                        message: r.params["message"]
+                      })
+
+        ContactRequestMailer.call(
+          full_name: full_name,
+          email: r.params["email"],
+          phone: r.params["phone"],
+          body: body
+        )
+
+        successful = true
+        r.session["contact_request_result"] = if successful
+                                                "success"
+                                              else
+                                                "failure"
+                                              end
+
+        begin
+          r.persist_session(r.env, r.session)
+        rescue Roda::RodaPlugins::Sessions::CookieTooLarge => error
+          raise error
+        end
+
+        r.redirect "/contact"
+      end
+
+      r.get do
+        view("contact_requests", layout_opts: { locals: layout_locals(r) })
       end
     end
 

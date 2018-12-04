@@ -20,6 +20,9 @@ Dotenv.load
 
 require "pry"
 
+# make it easier to require app files in specs
+$LOAD_PATH.unshift File.expand_path("..", File.dirname(__FILE__))
+
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 RSpec.configure do |config|
   # rspec-expectations config goes here. You can use an alternate

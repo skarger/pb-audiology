@@ -142,7 +142,7 @@ RSpec.describe "ContactRequestMailer" do
       end
     end
 
-    context "product environment" do
+    context "production environment" do
       before do
         @original_env = ENV["RACK_ENV"]
         ENV["RACK_ENV"] = "production"

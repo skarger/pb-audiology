@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require "mail"
-
 # Helper to send email to provider when visitor submits a contact request
 class ContactRequestMailer
   include MailSetup

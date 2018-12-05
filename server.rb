@@ -87,7 +87,7 @@ class Server < Roda
         r.session["contact_request_message"] = r.params["message"]
 
         full_name = "#{r.params['first_name']} #{r.params['last_name']}"
-        body = render("contact_request_email",
+        body = render("emails/contact_request_email",
                       locals: {
                         full_name: full_name,
                         email: r.params["email"],

@@ -132,13 +132,9 @@ class Server < Roda
           r.session["contact_request_result"] = "failure"
         end
 
-        begin
-          r.persist_session(r.env, r.session)
-        rescue Roda::RodaPlugins::Sessions::CookieTooLarge => error
-          raise error
-        end
-
         r.redirect "/contact_requests"
+      rescue Roda::RodaPlugins::Sessions::CookieTooLarge => error
+        raise error
       end
     end
 

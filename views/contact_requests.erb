@@ -25,9 +25,11 @@ Alternatively, you can call us at <a class="text-teal-darker" href="tel:<%= tele
         <% if contact_request_result == "success" %>
             <% contact_success_message_visibility = "visible" %>
             <% contact_request_result_message = "Thank you for reaching out!" %>
+            <% contact_request_button_message = "Message submitted" %>
         <% elsif contact_request_result == "failure" %>
             <% contact_success_message_visibility = "visible" %>
             <% contact_request_result_message = "Submission failed. Please check your input and try again." %>
+            <% contact_request_button_message = "Submission failed" %>
         <% end %>
 
         <div class="flex justify-start mb-6 <%= contact_success_message_visibility %>">
@@ -67,7 +69,7 @@ Alternatively, you can call us at <a class="text-teal-darker" href="tel:<%= tele
 
         <%# repeat result message at bottom %>
         <div class="flex justify-end mb-6 <%= contact_success_message_visibility %>">
-            Message submitted
+            <%= contact_request_button_message %>
         </div>
     </div>
 </form>

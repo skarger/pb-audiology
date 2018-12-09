@@ -72,7 +72,7 @@ input::placeholder, textarea::placeholder {
 
 .wrapper {
     display: grid;
-    grid-template-rows: 150px 70px 15fr 3fr 30px;
+    grid-template-rows: 150px 220px 15fr 3fr 30px;
     @apply w-full;
     @apply h-full;
 }

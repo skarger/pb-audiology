@@ -16,6 +16,10 @@
     }
 }
 
+a {
+    @apply text-teal-darker;
+}
+
 a, a:visited {
     @apply no-underline;
     @apply font-bold;

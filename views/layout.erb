@@ -47,7 +47,9 @@
                 <%== yield %>
             </div>
             <div class="related-links p-2">
-                <img class="aba-image float-right mt-5 xl:mt-0" src="/images/ABA-Logo-Tagline-Color-compressed.jpg" alt="American Board of Audiology - Board Certified in Audiology">
+                <% if current_path == '/about' %>
+                    <img class="aba-image float-right pt-5 xl:pt-0" src="/images/ABA-Logo-Tagline-Color-compressed.jpg" alt="American Board of Audiology - Board Certified in Audiology">
+                <% end %>
             </div>
             <div class="footer">
             </div>

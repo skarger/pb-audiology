@@ -66,10 +66,6 @@ input::placeholder, textarea::placeholder {
     }
 }
 
-.related-links {
-    align-self: end;
-}
-
 .footer {
     background: linear-gradient(config('colors.teal-darker'), config('colors.teal-darkest')), config('colors.teal-darkest');
 }

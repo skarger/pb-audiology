@@ -111,12 +111,14 @@ input::placeholder, textarea::placeholder {
     }
 }
 
-@screen xl {
+@screen lg {
     .wrapper {
-        grid-template-rows: 150px 15fr 30px;
+        grid-template-rows: 80px 15fr 30px;
         grid-template-columns: 10rem 3fr 1fr;
     }
+ }
 
+@screen xl {
     .main {
         grid-column: 2 / 3;
     }

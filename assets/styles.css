@@ -10,6 +10,11 @@
     max-width: 120px;
 }
 
+.pb-image {
+    border-radius: 10%;
+    max-height: 350px;
+}
+
 @screen md {
     .aba-image {
         max-width: 180px;

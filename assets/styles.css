@@ -43,7 +43,7 @@ a:active {
 /* TODO: revise link styles to specialize the nav links instead */
 a#header-telephone {
     @apply font-normal;
-    @apply text-orange;
+    @apply text-orange-lighter;
     @apply text-xl;
 }
 

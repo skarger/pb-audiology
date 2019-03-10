@@ -10,8 +10,15 @@
     max-width: 120px;
 }
 
-.pb-image {
+.rounded-image {
     border-radius: 10%;
+}
+
+.pb-image {
+    max-height: 350px;
+}
+
+.cans-image {
     max-height: 350px;
 }
 

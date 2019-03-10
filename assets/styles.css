@@ -25,6 +25,19 @@
     margin-bottom: 8px;
 }
 
+.home-image-1 {
+    max-height: 150px;
+    float: left;
+    margin-right: 10px;
+    margin-bottom: 8px;
+}
+
+.home-image-2 {
+    max-height: 150px;
+    margin-left: 10px;
+    float: right;
+}
+
 .cans-image {
     max-height: 350px;
 }

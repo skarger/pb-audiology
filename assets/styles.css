@@ -8,6 +8,9 @@
 
 .aba-image {
     max-width: 120px;
+    float: right;
+    clear: left;
+    margin-top: 5px;
 }
 
 .rounded-image {
@@ -16,6 +19,10 @@
 
 .pb-image {
     max-height: 350px;
+    float: left;
+    margin-top: 5px;
+    margin-right: 1rem;
+    margin-bottom: 8px;
 }
 
 .cans-image {

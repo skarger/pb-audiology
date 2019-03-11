@@ -137,8 +137,7 @@ input::placeholder, textarea::placeholder {
 
 .header {
     background: linear-gradient(config('colors.teal-darkest'), config('colors.teal-darker')), config('colors.teal-darkest');
-    font-family: 'rubikmedium_italic', sans-serif;
-    font-style: 'italic';
+    font-family: 'rubiklight', sans-serif;
 }
 
 .navigation {

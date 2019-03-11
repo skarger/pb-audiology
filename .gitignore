@@ -1,5 +1,8 @@
 # compiled assets for this project
 /public/main.*
+/public/*.gz
+/public/*.svg
+/public/*.ttf
 
 /**/.DS_Store
 

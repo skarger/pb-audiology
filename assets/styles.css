@@ -239,7 +239,7 @@ input::placeholder, textarea::placeholder {
 
 @screen lg {
     .wrapper {
-        grid-template-rows: 150px minmax(min-content, 15fr) 30px;
+        grid-template-rows: 80px minmax(min-content, 15fr) 30px;
         grid-template-columns: 10rem 3fr 1fr;
     }
 

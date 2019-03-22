@@ -27,7 +27,7 @@ GOOGLE_MAPS_QUERY = "104+Newfield+Drive,Stamford+CT+06905"
 GOOGLE_MAPS_EMBED_URL = "https://www.google.com/maps/embed/v1/place" \
   "?key=#{ENV['GOOGLE_API_KEY']}" \
   "&q=#{GOOGLE_MAPS_QUERY}" \
-  "&zoom=12" \
+  "&zoom=11" \
   "&attribution_source=Google+Maps+Embed+API" \
   "&attribution_web_url=#{ENV['PUBLIC_URL']}" \
   "attribution_ios_deep_link_id=comgooglemaps://?daddr=#{GOOGLE_MAPS_QUERY}"

@@ -71,7 +71,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .pb-image {
-    max-height: 350px;
+    max-height: 250px;
     float: left;
     margin-top: 5px;
     margin-right: 1rem;

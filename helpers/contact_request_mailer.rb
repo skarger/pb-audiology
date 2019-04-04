@@ -26,7 +26,7 @@ class ContactRequestMailer
     body = self.body
 
     Mail.new do
-      from(ENV["CONTACT_NOTIFICATION_EMAIL_DESTINATION"])
+      from(ENV["GOOGLE_USERNAME"])
       to(ENV["CONTACT_NOTIFICATION_EMAIL_DESTINATION"])
       subject(subject)
       body(body)

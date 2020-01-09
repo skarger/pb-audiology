@@ -1,1 +1,1 @@
-let defaultConfig = require('tailwindcss/defaultConfig')();
+let defaultConfig = require('tailwindcss/defaultConfig');

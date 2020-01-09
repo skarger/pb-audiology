@@ -138,23 +138,23 @@ input::placeholder, textarea::placeholder {
 }
 
 .header {
-    background: linear-gradient(config('colors.teal-darkest'), config('colors.teal-darker')), config('colors.teal-darkest');
+    background: linear-gradient(theme('colors.teal-darkest'), theme('colors.teal-darker')), theme('colors.teal-darkest');
     font-family: 'rubikregular', sans-serif;
 }
 
 .navigation {
-    background: linear-gradient(config('colors.red-lighter'), config('colors.pink-lightest')), config('colors.teal-darkest');
+    background: linear-gradient(theme('colors.red-lighter'), theme('colors.pink-lightest')), theme('colors.teal-darkest');
     font-family: 'rubiklight';
 }
 
 @screen md {
     .navigation {
-        background: linear-gradient(to right, config('colors.red-lighter'), config('colors.pink-lightest') 99%), config('colors.teal-darkest');
+        background: linear-gradient(to right, theme('colors.red-lighter'), theme('colors.pink-lightest') 99%), theme('colors.teal-darkest');
     }
 }
 
 .footer {
-    background: linear-gradient(config('colors.teal-darker'), config('colors.teal-darkest')), config('colors.teal-darkest');
+    background: linear-gradient(theme('colors.teal-darker'), theme('colors.teal-darkest')), theme('colors.teal-darkest');
 }
 
 /*

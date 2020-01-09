@@ -1,8 +1,6 @@
-var tailwindcss = require('tailwindcss');
-
 module.exports = ({ file, options, env }) => ({
   plugins: {
-    'tailwindcss': tailwindcss,
+    'tailwindcss': {},
     'autoprefixer': { grid: true },
     'cssnano': env === 'production'
   }

@@ -246,6 +246,6 @@ input::placeholder, textarea::placeholder {
     }
 }
 
-@tailwind preflight;
+@tailwind base;
 @tailwind components;
 @tailwind utilities;

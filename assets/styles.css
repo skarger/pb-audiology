@@ -138,23 +138,23 @@ input::placeholder, textarea::placeholder {
 }
 
 .header {
-    background: linear-gradient(theme('colors.teal-800'), theme('colors.teal-700')), theme('colors.teal-800');
+    background: linear-gradient(theme('colors.teal.900'), theme('colors.teal.800')), theme('colors.teal.900');
     font-family: 'rubikregular', sans-serif;
 }
 
 .navigation {
-    background: linear-gradient(theme('colors.red-200'), theme('colors.pink-100')), theme('colors.teal-800');
+    background: linear-gradient(theme('colors.red.200'), theme('colors.pink.100')), theme('colors.teal.900');
     font-family: 'rubiklight';
 }
 
 @screen md {
     .navigation {
-        background: linear-gradient(to right, theme('colors.red-200'), theme('colors.pink-100') 99%), theme('colors.teal-800');
+        background: linear-gradient(to right, theme('colors.red.200'), theme('colors.pink.100') 99%), theme('colors.teal.900');
     }
 }
 
 .footer {
-    background: linear-gradient(theme('colors.teal-700'), theme('colors.teal-800')), theme('colors.teal-800');
+    background: linear-gradient(theme('colors.teal.800'), theme('colors.teal.900')), theme('colors.teal.900');
 }
 
 /*

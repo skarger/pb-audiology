@@ -102,7 +102,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 a {
-    @apply text-teal-darker;
+    @apply text-teal-700;
 }
 
 a, a:visited {
@@ -112,18 +112,18 @@ a, a:visited {
 }
 
 a:hover {
-    @apply text-orange-dark;
+    @apply text-orange-600;
 }
 
 a:active {
-    @apply text-orange;
+    @apply text-orange-500;
 }
 
 /* we need to override the link styles for the header */
 /* TODO: revise link styles to specialize the nav links instead */
 a#header-telephone {
     @apply font-normal;
-    @apply text-orange-lighter;
+    @apply text-orange-200;
     @apply text-xl;
 }
 
@@ -138,23 +138,23 @@ input::placeholder, textarea::placeholder {
 }
 
 .header {
-    background: linear-gradient(theme('colors.teal-darkest'), theme('colors.teal-darker')), theme('colors.teal-darkest');
+    background: linear-gradient(theme('colors.teal-800'), theme('colors.teal-700')), theme('colors.teal-800');
     font-family: 'rubikregular', sans-serif;
 }
 
 .navigation {
-    background: linear-gradient(theme('colors.red-lighter'), theme('colors.pink-lightest')), theme('colors.teal-darkest');
+    background: linear-gradient(theme('colors.red-200'), theme('colors.pink-100')), theme('colors.teal-800');
     font-family: 'rubiklight';
 }
 
 @screen md {
     .navigation {
-        background: linear-gradient(to right, theme('colors.red-lighter'), theme('colors.pink-lightest') 99%), theme('colors.teal-darkest');
+        background: linear-gradient(to right, theme('colors.red-200'), theme('colors.pink-100') 99%), theme('colors.teal-800');
     }
 }
 
 .footer {
-    background: linear-gradient(theme('colors.teal-darker'), theme('colors.teal-darkest')), theme('colors.teal-darkest');
+    background: linear-gradient(theme('colors.teal-700'), theme('colors.teal-800')), theme('colors.teal-800');
 }
 
 /*

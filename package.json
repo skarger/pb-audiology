@@ -3,8 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "repository": "git@github.com:skarger/pb-audiology.git",
-  "author": "Stephen Karger <stephen.karger@gmail.com>",
-  "license": "MIT",
+  "author": "Stephen Karger",
   "engines": {
     "node": "12.x",
     "yarn": "1.x"

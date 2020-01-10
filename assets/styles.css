@@ -49,9 +49,14 @@
 }
 /** end fonts **/
 
+html {
+    height: 100%;
+}
+
 body {
     font-family: 'source_sans_proregular', serif;
     line-height: 1.15;
+    height: 100%;
 }
 
 h1, h2, h3, h4, h5, h6 {

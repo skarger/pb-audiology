@@ -52,6 +52,10 @@ h1, h2, h3, h4, h5, h6 {
     font-family: 'rubiklight', sans-serif;
 }
 
+/* email address span ID for contact page */
+#e {
+    user-select: all;
+}
 
 .aba-image {
     max-width: 120px;

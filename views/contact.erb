@@ -1,6 +1,13 @@
 <p class="pl-1 md:pl-3">Have a question? Would you like to arrange an appointment?</p>
 
-<p class="pl-1 md:pl-3 pb-3"><a class="text-teal-800" href="/contact_requests">Click here to send us a message</a>, or call us at <a class="text-teal-800" href="tel:<%= telephone %>"><%= telephone %></a>.</p>
+<p class="pl-1 md:pl-3 pb-3">Email us at <span id="e" class="text-teal-800 font-bold e-mail"></span>, or call us at <a class="text-teal-800" href="tel:<%= telephone %>"><%= telephone %></a>.</p>
+
+<script>
+    var d = "moc.ygoloiduayeliabeniluap";
+    var u = "ofni";
+    var e = (d + "@" + u).split("").reverse().join("");
+    document.querySelector("#e").innerText = e;
+</script>
 
 <p class="pl-1 md:pl-3 pt-4">
 We are located at <a class="text-teal-800" href="<%= google_maps_link %>"><%= street_address %>, <%= address_locality %>, <%= address_region %> <%= postal_code %></a>.

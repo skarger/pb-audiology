@@ -155,7 +155,7 @@ input::placeholder, textarea::placeholder {
 }
 
 .footer {
-    background: linear-gradient(theme('colors.teal.800'), theme('colors.teal.900')), theme('colors.teal.900');
+    background: linear-gradient(theme('colors.teal.900'), theme('colors.teal.800')), theme('colors.teal.900');
 }
 
 /*

@@ -11,12 +11,8 @@
 /* for page header bar text */
 @font-face {
     font-family: 'rubikregular';
-    src: url('fonts/rubik-regular-webfont.eot');
-    src: url('fonts/rubik-regular-webfont.eot?#iefix') format('embedded-opentype'),
-         url('fonts/rubik-regular-webfont.woff2') format('woff2'),
-         url('fonts/rubik-regular-webfont.woff') format('woff'),
-         url('fonts/rubik-regular-webfont.ttf') format('truetype'),
-         url('fonts/rubik-regular-webfont.svg#rubikregular') format('svg');
+    src: url('fonts/rubik-regular-webfont.woff2') format('woff2'),
+         url('fonts/rubik-regular-webfont.woff') format('woff');
     font-weight: normal;
     font-style: normal;
 
@@ -26,11 +22,8 @@
 @font-face {
     font-family: 'rubiklight';
     src: url('fonts/rubik-light-webfont.eot');
-    src: url('fonts/rubik-light-webfont.eot?#iefix') format('embedded-opentype'),
-         url('fonts/rubik-light-webfont.woff2') format('woff2'),
-         url('fonts/rubik-light-webfont.woff') format('woff'),
-         url('fonts/rubik-light-webfont.ttf') format('truetype'),
-         url('fonts/rubik-light-webfont.svg#rubiklight') format('svg');
+    src: url('fonts/rubik-light-webfont.woff2') format('woff2'),
+         url('fonts/rubik-light-webfont.woff') format('woff');
     font-weight: normal;
     font-style: normal;
 }
@@ -38,12 +31,8 @@
 /* for paragraph and other non-header text */
 @font-face {
     font-family: 'source_sans_proregular';
-    src: url('fonts/sourcesanspro-regular-webfont.eot');
-    src: url('fonts/sourcesanspro-regular-webfont.eot?#iefix') format('embedded-opentype'),
-         url('fonts/sourcesanspro-regular-webfont.woff2') format('woff2'),
-         url('fonts/sourcesanspro-regular-webfont.woff') format('woff'),
-         url('fonts/sourcesanspro-regular-webfont.ttf') format('truetype'),
-         url('fonts/sourcesanspro-regular-webfont.svg#source_sans_proregular') format('svg');
+    src: url('fonts/sourcesanspro-regular-webfont.woff2') format('woff2'),
+         url('fonts/sourcesanspro-regular-webfont.woff') format('woff');
     font-weight: normal;
     font-style: normal;
 }

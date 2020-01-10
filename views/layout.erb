@@ -1,4 +1,4 @@
-<DOCTYPE html>
+<!DOCTYPE html>
 <html>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="utf-8"/>
@@ -21,10 +21,10 @@
         </script>
     </head>
 
-    <body class="bg-white text-teal-darkest">
+    <body class="bg-white text-teal-900">
         <div class="wrapper">
-            <div class="header whitespace-no-wrap text-xl md:text-2xl text-orange-lighter px-4 py-2 flex flex-col items-center justify-between lg:flex-row lg:items-stretch">
-                <span class="text-2xl md:text-3xl"><%= provider_name %>, <span class="text-orange"><%= provider_credentials %></span></span>
+            <div class="header whitespace-no-wrap text-xl md:text-2xl text-orange-200 px-4 py-2 flex flex-col items-center justify-between lg:flex-row lg:items-stretch">
+                <span class="text-2xl md:text-3xl"><%= provider_name %>, <span class="text-orange-500"><%= provider_credentials %></span></span>
                 <span><a id="header-telephone" href="tel:<%= telephone %>"><%= telephone %></a></span>
                 <span class="flex flex-col items-center justify-between md:flex-row md:items-stretch lg:flex-col lg:justify-start">
                     <span class="md:pr-2 lg:pr-0 lg:pb-2"><%= street_address %></span>
@@ -32,16 +32,16 @@
                 </span>
             </div>
             <div class="navigation p-2 flex justify-around items-center md:items-stretch md:flex-col md:justify-start">
-                <a class="<%= current_path == '/' ? 'text-orange-lighter bg-teal-darker rounded-lg' : 'text-teal-darkest' %>" href="/">
+                <a class="<%= current_path == '/' ? 'text-orange-200 bg-teal-800 rounded-lg' : 'text-teal-900' %>" href="/">
                     <div class="p-2 md:p-3">Home</div>
                 </a>
-                <a class="<%= current_path == '/about' ? 'text-orange-lighter bg-teal-darker rounded-lg' : 'text-teal-darkest' %>" href="/about">
+                <a class="<%= current_path == '/about' ? 'text-orange-200 bg-teal-800 rounded-lg' : 'text-teal-900' %>" href="/about">
                     <div class="p-2 md:p-3">About</div>
                 </a>
-                <a class="<%= current_path == '/contact' ? 'text-orange-lighter bg-teal-darker rounded-lg' : 'text-teal-darkest' %>" href="/contact">
+                <a class="<%= current_path == '/contact' ? 'text-orange-200 bg-teal-800 rounded-lg' : 'text-teal-900' %>" href="/contact">
                     <div class="p-2 md:p-3">Contact Us</div>
                 </a>
-                <a class="<%= current_path == '/faq' ? 'text-orange-lighter bg-teal-darker rounded-lg' : 'text-teal-darkest' %>" href="/faq">
+                <a class="<%= current_path == '/faq' ? 'text-orange-200 bg-teal-800 rounded-lg' : 'text-teal-900' %>" href="/faq">
                     <div class="p-2 md:p-3">FAQ</div>
                 </a>
             </div>

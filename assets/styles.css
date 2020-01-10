@@ -11,12 +11,8 @@
 /* for page header bar text */
 @font-face {
     font-family: 'rubikregular';
-    src: url('fonts/rubik-regular-webfont.eot');
-    src: url('fonts/rubik-regular-webfont.eot?#iefix') format('embedded-opentype'),
-         url('fonts/rubik-regular-webfont.woff2') format('woff2'),
-         url('fonts/rubik-regular-webfont.woff') format('woff'),
-         url('fonts/rubik-regular-webfont.ttf') format('truetype'),
-         url('fonts/rubik-regular-webfont.svg#rubikregular') format('svg');
+    src: url('fonts/rubik-regular-webfont.woff2') format('woff2'),
+         url('fonts/rubik-regular-webfont.woff') format('woff');
     font-weight: normal;
     font-style: normal;
 
@@ -26,11 +22,8 @@
 @font-face {
     font-family: 'rubiklight';
     src: url('fonts/rubik-light-webfont.eot');
-    src: url('fonts/rubik-light-webfont.eot?#iefix') format('embedded-opentype'),
-         url('fonts/rubik-light-webfont.woff2') format('woff2'),
-         url('fonts/rubik-light-webfont.woff') format('woff'),
-         url('fonts/rubik-light-webfont.ttf') format('truetype'),
-         url('fonts/rubik-light-webfont.svg#rubiklight') format('svg');
+    src: url('fonts/rubik-light-webfont.woff2') format('woff2'),
+         url('fonts/rubik-light-webfont.woff') format('woff');
     font-weight: normal;
     font-style: normal;
 }
@@ -38,19 +31,21 @@
 /* for paragraph and other non-header text */
 @font-face {
     font-family: 'source_sans_proregular';
-    src: url('fonts/sourcesanspro-regular-webfont.eot');
-    src: url('fonts/sourcesanspro-regular-webfont.eot?#iefix') format('embedded-opentype'),
-         url('fonts/sourcesanspro-regular-webfont.woff2') format('woff2'),
-         url('fonts/sourcesanspro-regular-webfont.woff') format('woff'),
-         url('fonts/sourcesanspro-regular-webfont.ttf') format('truetype'),
-         url('fonts/sourcesanspro-regular-webfont.svg#source_sans_proregular') format('svg');
+    src: url('fonts/sourcesanspro-regular-webfont.woff2') format('woff2'),
+         url('fonts/sourcesanspro-regular-webfont.woff') format('woff');
     font-weight: normal;
     font-style: normal;
 }
 /** end fonts **/
 
+html {
+    height: 100%;
+}
+
 body {
     font-family: 'source_sans_proregular', serif;
+    line-height: 1.15;
+    height: 100%;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -102,7 +97,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 a {
-    @apply text-teal-darker;
+    @apply text-teal-700;
 }
 
 a, a:visited {
@@ -112,18 +107,18 @@ a, a:visited {
 }
 
 a:hover {
-    @apply text-orange-dark;
+    @apply text-orange-600;
 }
 
 a:active {
-    @apply text-orange;
+    @apply text-orange-500;
 }
 
 /* we need to override the link styles for the header */
 /* TODO: revise link styles to specialize the nav links instead */
 a#header-telephone {
     @apply font-normal;
-    @apply text-orange-lighter;
+    @apply text-orange-200;
     @apply text-xl;
 }
 
@@ -138,23 +133,23 @@ input::placeholder, textarea::placeholder {
 }
 
 .header {
-    background: linear-gradient(config('colors.teal-darkest'), config('colors.teal-darker')), config('colors.teal-darkest');
+    background: linear-gradient(theme('colors.teal.900'), theme('colors.teal.800')), theme('colors.teal.900');
     font-family: 'rubikregular', sans-serif;
 }
 
 .navigation {
-    background: linear-gradient(config('colors.red-lighter'), config('colors.pink-lightest')), config('colors.teal-darkest');
+    background: linear-gradient(theme('colors.red.200'), theme('colors.pink.100')), theme('colors.teal.900');
     font-family: 'rubiklight';
 }
 
 @screen md {
     .navigation {
-        background: linear-gradient(to right, config('colors.red-lighter'), config('colors.pink-lightest') 99%), config('colors.teal-darkest');
+        background: linear-gradient(to right, theme('colors.red.200'), theme('colors.pink.100') 99%), theme('colors.teal.900');
     }
 }
 
 .footer {
-    background: linear-gradient(config('colors.teal-darker'), config('colors.teal-darkest')), config('colors.teal-darkest');
+    background: linear-gradient(theme('colors.teal.900'), theme('colors.teal.800')), theme('colors.teal.900');
 }
 
 /*
@@ -246,6 +241,6 @@ input::placeholder, textarea::placeholder {
     }
 }
 
-@tailwind preflight;
+@tailwind base;
 @tailwind components;
 @tailwind utilities;
